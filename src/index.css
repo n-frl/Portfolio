@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   TOKENS DE COULEUR
+   Format "R G B" (sans virgule) pour que Tailwind gere l'opacite.
+
+   Note contraste : #00FFFF sur blanc = ratio 1.3:1, tres en dessous du seuil
+   WCAG AA (4.5:1 pour du texte). Le cyan pur est donc reserve aux TRAITS et
+   aux graphismes (--accent-line). Pour tout ce qui est texte ou lien, on
+   utilise --accent, un cyan assombri qui passe AA sur blanc.
+   ========================================================================== */
+
+:root {
+  --canvas: 255 255 255;
+  --surface: 255 255 255;
+  --surface-2: 246 249 250;
+  --line: 226 232 236;
+  --line-strong: 203 213 220;
+  --ink: 13 22 30;
+  --ink-muted: 82 96 108;
+  --ink-faint: 122 136 148;
+  --accent: 4 108 122; /* #046C7A - 5.8:1 sur blanc  */
+  --accent-strong: 3 80 91; /* #03505B                    */
+  --accent-line: 0 255 255; /* #00FFFF - traits seulement */
+  --accent-wash: 234 252 253;
+  --focus: 4 108 122;
+}
+
+.dark {
+  --canvas: 9 14 19;
+  --surface: 16 23 30;
+  --surface-2: 22 31 39;
+  --line: 39 51 62;
+  --line-strong: 58 73 86;
+  --ink: 232 240 245;
+  --ink-muted: 152 167 180;
+  --ink-faint: 118 133 146;
+  --accent: 90 235 245; /* lisible sur fond sombre */
+  --accent-strong: 0 255 255;
+  --accent-line: 0 255 255;
+  --accent-wash: 18 40 46;
+  --focus: 0 255 255;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Focus clavier visible partout - exigence AA, ne pas retirer. */
+  :focus-visible {
+    outline: 2px solid rgb(var(--focus));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: rgb(var(--accent-line) / 0.35);
+    color: rgb(var(--ink));
+  }
+
+  /* Respect de la preference systeme "reduire les animations". */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* --- Conteneur de page -------------------------------------------------- */
+  .shell {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  /* --- Carte (unite de base du layout, esprit fil d'actualite) ------------- */
+  .card {
+    @apply rounded-card border border-line bg-surface shadow-card;
+  }
+
+  /* --- Eyebrow : petite etiquette technique au-dessus des titres ----------- */
+  .eyebrow {
+    @apply font-mono text-eyebrow font-medium uppercase text-ink-faint;
+  }
+
+  /* --- Lien texte --------------------------------------------------------- */
+  .link {
+    @apply text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+
+  /* --- Pill : etiquette de competence ------------------------------------- */
+  .pill {
+    @apply inline-flex items-center rounded-full border border-line bg-surface-2 px-3 py-1 text-sm text-ink-muted transition-colors;
+  }
+  .pill-accent {
+    @apply border-accent/30 bg-accent-wash text-accent;
+  }
+
+  /* --- Badge "a completer" : signale un placeholder, jamais une vraie data - */
+  .badge-todo {
+    @apply inline-flex items-center gap-1.5 rounded border border-dashed border-line-strong bg-surface-2 px-2 py-0.5 font-mono text-meta uppercase text-ink-faint;
+  }
+
+  /* --- Bouton primaire ----------------------------------------------------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-55;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-strong dark:text-canvas;
+  }
+  .btn-ghost {
+    @apply btn border border-line bg-surface text-ink hover:border-line-strong hover:bg-surface-2;
+  }
+
+  /* --- Champ de formulaire ------------------------------------------------- */
+  .field {
+    @apply w-full rounded-md border border-line bg-surface px-3.5 py-2.5 text-[0.9375rem] text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/25;
+  }
+  .field-invalid {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-500/25;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+
+  /* ======================================================================
+     SIGNATURE VISUELLE : la grille de coffrage.
+     Reference directe aux plans de structure (trame de poteaux + bulles de
+     reperage). C'est le seul endroit ou le cyan pur #00FFFF est utilise a
+     pleine intensite, en trait fin, comme sur un calque de dessin.
+     ====================================================================== */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--accent-line) / 0.55) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--accent-line) / 0.28) 1px, transparent 1px),
+      linear-gradient(to right, rgb(var(--line) / 0.85) 1px, transparent 1px);
+    background-size:
+      112px 100%,
+      100% 64px,
+      28px 100%;
+    background-position: 0 0;
+  }
+
+  /* Filet de section termine par un tick, comme une cote de plan. */
+  .rule-tick {
+    @apply relative h-px w-full bg-line;
+  }
+  .rule-tick::after {
+    content: '';
+    @apply absolute left-0 top-1/2 h-2.5 w-px -translate-y-1/2 bg-accent-line;
+  }
+}
+
+@layer utilities {
+  /* Etat initial des elements reveles au scroll (voir useReveal). */
+  .reveal {
+    opacity: 0;
+  }
+  .reveal-in {
+    @apply animate-fade-up;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+    }
+  }
+
+  /* Contenu reserve aux lecteurs d'ecran. */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    @apply sr-only;
+  }
+}

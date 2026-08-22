@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      // ======================================================================
+      //  Redirection SPA pour GitHub Pages (rafgraph/spa-github-pages)
+      //
+      //  GitHub Pages sert des fichiers statiques : il ne connait pas les
+      //  routes gerees cote client. Une visite directe sur /experience renvoie
+      //  donc ce 404.html. On encode l'URL demandee dans la query string, on
+      //  redirige vers index.html, et le script d'index.html la restaure.
+      //
+      //  pathSegmentsToKeep :
+      //     1  -> GitHub Pages "projet"  (user.github.io/portfolio-nabil/)
+      //     0  -> domaine custom OVH ou repo <user>.github.io
+      //  A CHANGER en meme temps que VITE_BASE_PATH le jour du domaine custom.
+      // ======================================================================
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(pathSegmentsToKeep)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      );
+    </script>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+  </body>
+</html>
