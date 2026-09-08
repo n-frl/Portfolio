@@ -10,8 +10,8 @@ Site statique, quatre pages, aucun backend.
 ## Démarrage
 
 ```bash
-git clone https://github.com/<utilisateur>/portfolio-nabil.git
-cd portfolio-nabil
+git clone https://github.com/n-frl/Portfolio.git
+cd Portfolio
 
 npm install
 cp .env.example .env.local   # puis renseigner VITE_FORMSPREE_ID
@@ -56,11 +56,11 @@ un badge **« To complete »**. La liste complète est dans [`TODO.md`](./TODO.m
 
 ### Première mise en ligne
 
-1. Créer un dépôt **public** nommé `portfolio-nabil` sur le compte GitHub de Nabil.
+1. Créer un dépôt **public** nommé `Portfolio` sur le compte GitHub de Nabil.
 2. Pousser le code sur `main`.
 3. Vérifier que `.env.local` contient :
    ```
-   VITE_BASE_PATH=/portfolio-nabil/
+   VITE_BASE_PATH=/Portfolio/
    ```
 4. Publier :
    ```bash
@@ -68,7 +68,7 @@ un badge **« To complete »**. La liste complète est dans [`TODO.md`](./TODO.m
    ```
    La commande construit le site et pousse `dist/` sur la branche `gh-pages`.
 5. Dans **Settings → Pages** du dépôt : source = branche `gh-pages`, dossier `/ (root)`.
-6. Le site est en ligne sur `https://<utilisateur>.github.io/portfolio-nabil/`
+6. Le site est en ligne sur `https://n-frl.github.io/Portfolio/`
    (compter une à deux minutes au premier déploiement).
 
 ### Pourquoi un fichier `public/404.html` ?

@@ -168,10 +168,10 @@ Le dépôt est **public**. Points de vigilance :
 
 ## Déploiement
 
-Aujourd'hui : GitHub Pages « projet », donc le site vit sous `/portfolio-nabil/`.
+Aujourd'hui : GitHub Pages « projet », donc le site vit sous `/Portfolio/`.
 
 Deux valeurs doivent rester cohérentes :
-- `VITE_BASE_PATH` dans `.env.local` → `/portfolio-nabil/`
+- `VITE_BASE_PATH` dans `.env.local` → `/Portfolio/`
 - `pathSegmentsToKeep = 1` dans `public/404.html`
 
 **Le jour du passage au domaine custom (OVH)** : passer `VITE_BASE_PATH` à `/`,

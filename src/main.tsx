@@ -18,7 +18,7 @@ if (!container) throw new Error('Root element #root not found in index.html');
 
 createRoot(container).render(
   <StrictMode>
-    {/* basename : indispensable pour GitHub Pages "projet" (/portfolio-nabil/). */}
+    {/* basename : indispensable pour GitHub Pages "projet" (/Portfolio/). */}
     <BrowserRouter basename={ROUTER_BASENAME}>
       <App />
     </BrowserRouter>

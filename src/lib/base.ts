@@ -2,7 +2,7 @@
  * Prefixe de base du site (voir `base` dans vite.config.ts).
  *
  * En dev  : "/"
- * En prod GitHub Pages projet : "/portfolio-nabil/"
+ * En prod GitHub Pages projet : "/Portfolio/"
  * En prod domaine custom      : "/"
  *
  * A utiliser pour TOUT asset statique reference depuis /public.
