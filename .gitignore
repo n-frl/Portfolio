@@ -1,0 +1,181 @@
+# =============================================================================
+#  .gitignore - Portfolio
+# =============================================================================
+#  Principe : ce dépôt est PUBLIC (GitHub Pages). Tout ce qui est commité est
+#  lisible par n'importe qui, pour toujours (l'historique git garde les
+#  fichiers même après suppression). On ignore donc large et on documente.
+#
+#  Audit rapide avant chaque push :
+#     git status --ignored --short      -> voir ce qui est ignoré
+#     git check-ignore -v <fichier>     -> savoir QUELLE règle ignore un fichier
+#     git ls-files                      -> voir tout ce qui est réellement suivi
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# 1. SECRETS ET VARIABLES D'ENVIRONNEMENT  (priorité absolue)
+# -----------------------------------------------------------------------------
+# Vite expose au navigateur TOUTE variable préfixée VITE_. Elle finit donc en
+# clair dans le bundle JS : ne JAMAIS y mettre un secret réel (clé API privée,
+# token, mot de passe). Ces fichiers sont ignorés pour éviter de commiter des
+# valeurs locales par accident, pas pour "protéger" un secret côté client.
+.env
+.env.*
+!.env.example          # seule exception : le gabarit sans valeur réelle
+
+# Fichiers de secrets divers rencontrés dans les projets front
+*.pem                  # clés privées TLS / SSH
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+secrets.json
+credentials.json
+.netrc
+.npmrc                 # peut contenir un token de registre npm
+.yarnrc.yml
+auth.json
+
+
+# -----------------------------------------------------------------------------
+# 2. DÉPENDANCES
+# -----------------------------------------------------------------------------
+# node_modules est reconstruit par `npm ci` / `npm install` depuis
+# package-lock.json. Le lock, lui, DOIT être commité (builds reproductibles).
+node_modules/
+.pnp
+.pnp.js
+jspm_packages/
+
+
+# -----------------------------------------------------------------------------
+# 3. ARTEFACTS DE BUILD
+# -----------------------------------------------------------------------------
+# `dist/` est généré par `npm run build` et publié sur la branche `gh-pages`
+# par le paquet `gh-pages`. Il n'a rien à faire sur la branche `main`.
+dist/
+dist-ssr/
+build/
+out/
+*.local
+
+# Caches d'outillage
+.vite/
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+.tscache/
+
+
+# -----------------------------------------------------------------------------
+# 4. LOGS ET RAPPORTS DE CRASH
+# -----------------------------------------------------------------------------
+# Les logs npm/yarn contiennent parfois des chemins absolus révélant le nom
+# d'utilisateur système et l'arborescence de la machine.
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.*.json
+
+
+# -----------------------------------------------------------------------------
+# 5. ÉDITEURS ET IDE
+# -----------------------------------------------------------------------------
+# On garde volontairement une partie de .vscode/ commitée (extensions et
+# réglages partagés, utiles pour travailler à plusieurs ou sur deux machines)
+# et on exclut le reste, qui est personnel ou peut contenir des chemins locaux.
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+# .vscode/launch.json et tasks.json restent ignorés : souvent des chemins absolus
+.history/              # extension VS Code "Local History" : copies de tout le code
+*.code-workspace
+
+.idea/                 # JetBrains
+*.iml
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+
+# -----------------------------------------------------------------------------
+# 6. SYSTÈMES D'EXPLOITATION
+# -----------------------------------------------------------------------------
+# .DS_Store fuite les noms de TOUS les fichiers d'un dossier, y compris ceux
+# qui ne sont pas commités. Classique en OSINT.
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+*~                     # fichiers de sauvegarde Linux/vim
+.fuse_hidden*
+.nfs*
+
+
+# -----------------------------------------------------------------------------
+# 7. DONNÉES PERSONNELLES / BROUILLONS
+# -----------------------------------------------------------------------------
+# Le CV publié est un choix assumé : il vit dans public/resume/ et EST commité.
+# En revanche les versions de travail, scans, pièces d'identité, lettres de
+# recommandation, etc. ne doivent jamais atterrir dans le dépôt.
+/private/
+/drafts/
+/scratch/
+*.draft.*
+*-perso.*
+*-private.*
+*.docx                 # brouillons Word du CV -> exporter en PDF dans public/
+*.doc
+*.odt
+*.pages
+# Note : si un jour tu veux commiter un .docx, force-le explicitement :
+#   git add -f chemin/du/fichier.docx
+
+
+# -----------------------------------------------------------------------------
+# 8. ARCHIVES ET BINAIRES LOURDS
+# -----------------------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.iso
+*.dmg
+*.exe
+*.msi
+
+
+# -----------------------------------------------------------------------------
+# 9. DIVERS
+# -----------------------------------------------------------------------------
+coverage/
+.nyc_output/
+.temp/
+tmp/
+temp/
+.firebase/
+.vercel/
+.netlify/
+.wrangler/

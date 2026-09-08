@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Monogramme NE dans un cartouche, avec un trait cyan : meme langage
+       visuel que la trame de coffrage du bandeau d'accueil. -->
+  <rect width="64" height="64" rx="10" fill="#0D161E"/>
+  <path d="M8 44h48" stroke="#00FFFF" stroke-width="2"/>
+  <text x="32" y="36" text-anchor="middle" font-family="ui-monospace, monospace"
+        font-size="24" font-weight="600" fill="#FFFFFF" letter-spacing="1">NE</text>
+</svg>
