@@ -5,21 +5,21 @@ import { coursework } from './education';
  * Pas de pourcentages ni de barres de progression : invérifiables et mal vus
  * sur un profil d'ingenieur. On liste, on groupe, on laisse le recruteur juger.
  *
- * SOURCE : Resume (PDF) + ajout de SAFE 2000 (confirme hors CV).
+ * SOURCE : Resume (PDF).
  */
 export const skillGroups: SkillGroup[] = [
   {
     id: 'structural-software',
     title: 'Structural analysis & design software',
     caption: 'Modeling, analysis, and design tools.',
-    items: ['SAP2000', 'SAFE 2000'],
+    items: ['SAP2000', 'CSI SAFE'],
     defaultOpen: true,
   },
   {
     id: 'drafting',
     title: 'Drafting & documentation',
     caption: 'Producing and reviewing drawings and project documents.',
-    items: ['AutoCAD', 'PDF-XChange', 'Microsoft Office Suite'],
+    items: ['AutoCAD', 'Bluebeam Revu', 'Microsoft Office Suite'],
     defaultOpen: true,
   },
   {
@@ -31,8 +31,6 @@ export const skillGroups: SkillGroup[] = [
       'CHCNAV i50 GNSS receiver',
       'Leica 3D laser scanner',
       'Total station',
-      'Auto level',
-      'Measuring wheel and rod',
     ],
     defaultOpen: true,
   },
@@ -52,7 +50,7 @@ export const skillGroups: SkillGroup[] = [
       'Drawing vs. as-built reconciliation',
       'Code compliance review',
       'Project planning',
-      'ADA accessibility assessment',
+      'Geotechnical report review',
     ],
     defaultOpen: true,
   },

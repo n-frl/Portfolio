@@ -5,13 +5,12 @@ import { profile, quickFacts } from '@/data/profile';
 import { experienceSorted } from '@/data/experience';
 import { education } from '@/data/education';
 import { projects } from '@/data/projects';
-import { languages } from '@/data/skills';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 
 export default function Home() {
   useDocumentMeta(
     'Nabil Elkorchi — Civil & Environmental Engineering',
-    'Portfolio of Nabil Elkorchi, civil and environmental engineering student at UMass Amherst focused on structures.',
+    'Portfolio of Nabil Elkorchi, civil and environmental engineering student at UMass Amherst.',
   );
 
   // On n'affiche que les deux experiences les plus recentes sur l'accueil.
@@ -137,6 +136,11 @@ export default function Home() {
             </Link>
           }
         />
+        {featuredProject.isPlaceholder && (
+          <p className="mb-3">
+            <TodoBadge />
+          </p>
+        )}
         <p className="text-sm text-ink-muted">{featuredProject.context}</p>
         <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
           {featuredProject.description}
@@ -148,18 +152,6 @@ export default function Home() {
         </ul>
       </Card>
 
-      {/* --- Langues -------------------------------------------------------- */}
-      <Card delay={140}>
-        <SectionHeading eyebrow="Languages" title="Trilingual" />
-        <ul className="grid gap-3 sm:grid-cols-3">
-          {languages.map((lang) => (
-            <li key={lang.language} className="rounded-md border border-line bg-surface-2 p-4">
-              <p className="font-medium text-ink">{lang.language}</p>
-              <p className="mt-0.5 text-sm text-ink-muted">{lang.level}</p>
-            </li>
-          ))}
-        </ul>
-      </Card>
     </div>
   );
 }

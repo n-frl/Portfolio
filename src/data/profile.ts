@@ -1,30 +1,24 @@
 import type { Profile } from './types';
 
 /**
- * SOURCE : Resume (PDF) de Nabil Elkorchi.
+ * SOURCE : Resume (PDF) de Nabil Elkorchi + texte fourni par Nabil.
  * Le telephone et l'adresse e-mail personnelle figurent sur le CV mais ne sont
  * PAS publies sur le site : le seul canal de contact est le formulaire, pour
- * limiter le scraping. Le CV telechargeable les contient - c'est un choix
- * assume, a revoir si necessaire (voir TODO.md).
+ * limiter le scraping.
  */
 export const profile: Profile = {
   fullName: 'Nabil Elkorchi',
 
-  // Factuel, tire directement du CV.
-  headline: 'Civil & Environmental Engineering Student — Structures',
+  headline: 'Civil & Environmental Engineering Student',
 
-  // [A COMPLETER] Une phrase pour dire ce qu'il cherche et ce qu'il apporte.
   tagline:
-    '[TAGLINE — one sentence, e.g. "Seeking a structural design engineering role in Massachusetts."]',
+    'Seeking a position where I can develop technical and organizational skills in engineering while contributing to the company’s success.',
 
   location: 'Worcester, Massachusetts',
 
+  // Texte fourni mot pour mot par Nabil.
   about: [
-    // Reformulation du "Summary" du CV, a la premiere personne, ton US.
-    'I am an undergraduate civil and environmental engineering student at UMass Amherst, focused on structures. I am looking for a design engineering position where I can build technical and organizational depth while contributing to real project delivery.',
-    'Two summers of field and project experience in Rabat, Morocco gave me exposure to both ends of a project: collecting and processing survey data on site, then sitting on the owner-side of a 270,000 m² hospital and university complex, reconciling drawings against what was actually built.',
-    // [A COMPLETER] Troisieme paragraphe optionnel : orientation structures, objectif.
-    '[ABOUT — optional third paragraph: what you want to specialize in within structures, and what kind of team you want to join.]',
+    'My name is Nabil and I am a senior at the University of Massachusetts Amherst majoring in Civil Engineering. My aim is to attain a position/internship where I can develop technical and organizational skills in the engineering field while contributing to the company’s success. I strongly believe that my team spirit, enthusiasm and willingness to learn, alongside my adaptability and critical thinking skills, will allow me to take on the responsibilities necessary to achieve this goal.',
   ],
 
   // Le fichier doit etre depose dans public/resume/ sous ce nom exact.
@@ -34,11 +28,8 @@ export const profile: Profile = {
   links: [
     {
       label: 'LinkedIn',
-      // Pas encore de profil : le lien renvoie vers l'accueil, comme demande.
-      href: '/',
-      external: false,
-      isPlaceholder: true,
-      note: 'Profile not created yet — link points to the homepage.',
+      href: 'https://www.linkedin.com/in/nabil-e-7711a4435',
+      external: true,
     },
     {
       label: 'Email',
@@ -49,16 +40,17 @@ export const profile: Profile = {
 };
 
 /**
- * [A COMPLETER] Ces valeurs alimentent les chiffres de la page d'accueil.
- * Elles sont derivees du CV et doivent etre revues avant mise en ligne.
+ * Chiffres du bandeau de la page d'accueil.
+ * Les langues ne figurent plus ici : elles sont presentees une seule fois,
+ * dans la page Skills.
  */
 export const quickFacts: { label: string; value: string; isPlaceholder?: boolean }[] = [
-  { label: 'Graduation', value: 'May 2027' },
-  { label: 'Focus', value: 'Structures' },
-  { label: 'Languages', value: 'EN / FR / AR' },
+  { label: 'Graduation', value: 'December 2026' },
+  { label: 'GPA', value: '3.3 / 4.0' },
+  { label: 'Based in', value: 'Worcester, MA' },
   {
     label: 'Work authorization',
-    value: '[STATUS — e.g. US Citizen / F-1 CPT]',
+    value: '[STATUS — e.g. US Citizen / Permanent Resident / F-1 CPT]',
     isPlaceholder: true,
   },
 ];

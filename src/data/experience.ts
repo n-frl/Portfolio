@@ -2,43 +2,55 @@ import type { ExperienceItem } from './types';
 
 /**
  * SOURCE : Resume (PDF). Contenu conserve fidelement, reformule en anglais US
- * a la premiere personne implicite (style CV US : verbe d'action au passe).
+ * (style CV US : verbe d'action au passe).
  *
  * L'ordre d'affichage est du plus recent au plus ancien (tri sur sortKey).
  */
 export const experience: ExperienceItem[] = [
   {
-    // [A COMPLETER] Stage de Boston mentionne mais aucune information fournie.
-    // Renseigner company / role / period / bullets, puis retirer isPlaceholder.
-    id: 'boston-internship',
-    company: '[COMPANY NAME — Boston internship]',
-    role: '[ROLE TITLE]',
-    location: 'Boston, Massachusetts',
-    period: '[Month YYYY — Month YYYY]',
-    sortKey: '9999-99', // force la position en tete tant que c'est un placeholder
+    id: 'dn-tanks',
+    company: 'DN Tanks',
+    role: 'Design Engineer Intern',
+    location: 'Wakefield, MA',
+    period: 'June 2026 — August 2026',
+    sortKey: '2026-06',
     employmentType: 'Internship',
     bullets: [
-      '[BULLET 1 — what you were responsible for. Start with an action verb, past tense.]',
-      '[BULLET 2 — a concrete deliverable, with a number if you have one.]',
-      '[BULLET 3 — software, code, or method you applied.]',
+      'Modeled tank floor reactions under various loadings and different foundation configurations using SAFE.',
+      'Devised prestressing wire configurations for both pre-bid and final design project phases, then modeled tank wall behavior — resulting in pivotal changes that prevented costly design revisions.',
+      'Reviewed geotechnical reports, communicated concerns during bid meetings, and issued RFIs for missing data.',
+      'Developed AutoCAD, Excel, and SAFE tutorials for recent hires and standardized drawings, improving team efficiency.',
     ],
-    tools: ['[TOOL]', '[TOOL]'],
-    isPlaceholder: true,
+    tools: ['CSI SAFE', 'AutoCAD', 'Excel', 'RFIs', 'Geotechnical report review'],
+  },
+  {
+    id: 'umass-teaching-assistant',
+    company: 'UMass Amherst — Department of Civil Engineering',
+    role: 'Teaching Assistant, CEE 651 Piloting UAVs / Research Assistant',
+    location: 'Amherst, MA',
+    period: 'February 2026 — May 2026',
+    sortKey: '2026-02',
+    employmentType: 'On-campus',
+    bullets: [
+      'Co-taught and graded a class of 20+ students covering drone piloting, maintenance, and flight planning.',
+      'Supported the UMass Air research team outside of class, notably on flight mapping and in-situ data collection.',
+    ],
+    tools: ['UAV flight planning', 'Flight mapping', 'In-situ data collection'],
   },
   {
     id: 'luseo-engineering',
     company: 'Luseo Engineering',
     role: 'Project Manager Intern',
     location: 'Rabat, Morocco',
-    period: 'Jun 2025 — Jul 2025',
+    period: 'June 2025 — August 2025',
     sortKey: '2025-06',
     employmentType: 'Internship',
     bullets: [
-      'Supported delivery of the Royal Mohammed VI Hospital and University Complex — 270,000 m² of usable space across five buildings and a 25-story tower.',
-      'Identified discrepancies between floor plans and as-built installations on site, and escalated them to the responsible teams.',
-      'Reviewed installations against applicable code requirements and drafted the resulting RFIs and change notices.',
-      'Flagged conceptual errors on architectural drawings and worked them through with the engineering team.',
-      'Sat in on weekly team meetings and observed how the firm handled bidding, negotiation, client interviews, and project planning.',
+      'Oversaw development of the Royal Mohammed VI Hospital and University Complex — 270,000 m² of usable space across five buildings and a 25-story tower.',
+      'Identified discrepancies between floor plans and on-site installations, and escalated them to the responsible teams.',
+      'Researched the compliance of installations with legal requirements, drafting numerous RFIs and change notices.',
+      'Identified conceptual errors on architectural blueprints and worked them through with fellow engineers.',
+      'Attended weekly team meetings and observed how the firm handled work opportunities, negotiation, client interviews, and project planning.',
     ],
     tools: ['RFIs & change notices', 'Drawing review', 'Code compliance', 'Project planning'],
   },
@@ -47,14 +59,14 @@ export const experience: ExperienceItem[] = [
     company: 'Co Ex Engineering',
     role: 'Topography Intern',
     location: 'Rabat, Morocco',
-    period: 'Jun 2024 — Aug 2024',
+    period: 'June 2024 — August 2024',
     sortKey: '2024-06',
     employmentType: 'Internship',
     bullets: [
-      'Worked at a surveying firm serving both private clients and the state, operating and maintaining high-precision survey equipment.',
+      'Operated and maintained complex, high-precision surveying equipment.',
       'Ran GPS base and rover sets and a CHCNAV i50 GNSS receiver to collect field coordinates.',
       'Operated a Leica 3D laser scanner to capture building interiors, and processed the point cloud data in CloudWorx.',
-      'Used a total station to measure spot elevations across survey sites.',
+      'Used a total station to measure relief elevation across survey sites.',
       'Produced floor plans in AutoCAD for client deliverables, and processed drone imagery in Pix4Dmapper to build site overviews.',
     ],
     tools: [
@@ -68,5 +80,5 @@ export const experience: ExperienceItem[] = [
   },
 ];
 
-/** Trie du plus recent au plus ancien ; les placeholders remontent en tete. */
+/** Trie du plus recent au plus ancien. */
 export const experienceSorted = [...experience].sort((a, b) => b.sortKey.localeCompare(a.sortKey));
