@@ -8,7 +8,7 @@ export const education: EducationItem[] = [
     degree: 'Bachelor of Science',
     field: 'Civil and Environmental Engineering',
     location: 'Amherst, Massachusetts',
-    period: 'Expected December 2026',
+    period: 'Expected Fall 2026',
     details: ['GPA: 3.3 / 4.0'],
   },
 ];
@@ -23,7 +23,7 @@ export const credentials: Credential[] = [
   },
 ];
 
-/** Engagement associatif — SOURCE : Resume (PDF). */
+/** Engagement associatif. SOURCE : Resume (PDF). */
 export const involvement: {
   id: string;
   organization: string;
@@ -34,28 +34,33 @@ export const involvement: {
 }[] = [
   {
     id: 'agc-umass',
-    organization: 'Associated General Contractors (AGC) — UMass chapter',
+    organization: 'Associated General Contractors (AGC), UMass chapter',
     role: 'General Representative / Spokesperson',
-    period: 'February 2025 — Present',
+    period: 'February 2025 to Present',
     description:
       'Represent the chapter and speak on its behalf within the university and with outside partners.',
   },
 ];
 
-/** Cursus suivi — SOURCE : Resume (PDF), section "Relevant Coursework". */
+/** Cursus suivi. SOURCE : Resume (PDF), section "Relevant Coursework". */
 export const coursework: string[] = [
-  'Structural Analysis',
-  'Advanced Concrete Design',
-  'Geotechnical Site Investigations',
-  'Statics',
-  'Strength of Materials',
-  'Soil Mechanics',
-  'Fluid Mechanics',
-  'Thermodynamics',
   'Measurements',
-  'Transportation',
-  'Water and Environmental Resources Engineering',
+  'Statics',
   'Programming for Civil Engineering',
   'Probability for Civil Engineering',
+  'Strength of Materials',
+  'Thermodynamics',
   'Systems and Economics for Civil Engineering',
+  'Structural Analysis',
+  'Soil Mechanics',
+  'Fluid Mechanics',
+  'Transportation',
+  'Water and Environmental Resources Engineering',
+  'Concrete Design',
+  'Offshore Geotechnics',
+  'Geotechnical Site Investigations',
+  'Climate Change for Engineers',
+  'Advanced Concrete Design',
+  'Steel Design',
+  'Unified Structural Design',
 ];

@@ -9,7 +9,7 @@ import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 
 export default function Home() {
   useDocumentMeta(
-    'Nabil Elkorchi — Civil & Environmental Engineering',
+    'Nabil Elkorchi | Civil & Environmental Engineering',
     'Portfolio of Nabil Elkorchi, civil and environmental engineering student at UMass Amherst.',
   );
 
@@ -23,7 +23,7 @@ export default function Home() {
 
       {/* --- Faits rapides : bandeau de reperes, style cartouche de plan ----- */}
       <Card className="!p-0" delay={40}>
-        <dl className="grid grid-cols-2 divide-line sm:grid-cols-4 sm:divide-x">
+        <dl className="grid grid-cols-2 divide-line sm:grid-cols-3 sm:divide-x lg:grid-cols-5">
           {quickFacts.map((fact) => (
             <div
               key={fact.label}
@@ -141,10 +141,28 @@ export default function Home() {
             <TodoBadge />
           </p>
         )}
-        <p className="text-sm text-ink-muted">{featuredProject.context}</p>
-        <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
-          {featuredProject.description}
+        <p className="text-sm text-ink-muted">
+          {featuredProject.context} · {featuredProject.period}
         </p>
+        {featuredProject.description && (
+          <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
+            {featuredProject.description}
+          </p>
+        )}
+        <ul className="mt-4 space-y-2">
+          {featuredProject.contributions.map((line, i) => (
+            <li
+              key={i}
+              className="flex gap-2.5 text-[0.9375rem] leading-relaxed text-ink-muted"
+            >
+              <span
+                aria-hidden="true"
+                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-line"
+              />
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
         <ul className="mt-4 flex flex-wrap gap-2">
           {featuredProject.tools.map((tool) => (
             <Pill key={tool}>{tool}</Pill>

@@ -6,47 +6,40 @@ import { IconDownload, IconPin, TodoBadge } from './ui';
 /**
  * SIGNATURE VISUELLE DU SITE.
  *
- * Le bandeau n'est pas un degrade decoratif : c'est une trame de coffrage,
- * telle qu'on la trouve sur un plan de structure. Traits fins cyan, bulles de
- * reperage alphanumeriques (A/B/C, 1/2/3), cote horizontale avec ticks.
- * C'est le seul endroit ou #00FFFF est utilise a pleine intensite.
+ * Photographie de chantier au couchant (silhouette d'ouvrier, grues, ferraillage).
+ * L'image est servie depuis /public/images/ et prefixee par withBase() pour
+ * rester correcte quel que soit le chemin de base du site.
+ *
+ * Deux voiles sont superposes :
+ *   - un degrade sombre en bas, pour que l'avatar et la carte se detachent ;
+ *   - une trame de coffrage tres discrete, qui conserve le vocabulaire graphique
+ *     du reste du site sans alourdir la photo.
  */
-function BlueprintBanner() {
-  const columnLabels = ['A', 'B', 'C', 'D', 'E'];
-
+function HeroBanner() {
   return (
-    <div className="relative h-32 overflow-hidden bg-surface-2 sm:h-40" aria-hidden="true">
-      {/* Trame de fond */}
-      <div className="blueprint-grid absolute inset-0 opacity-60 dark:opacity-40" />
+    <div
+      className="relative h-40 overflow-hidden bg-surface-2 sm:h-52 lg:h-64"
+      aria-hidden="true"
+    >
+      <img
+        src={withBase('images/hero-construction.webp')}
+        alt=""
+        width={1920}
+        height={1080}
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
 
-      {/* Bulles de reperage des files de poteaux */}
-      <div className="absolute inset-x-0 top-3 hidden sm:block">
-        {columnLabels.map((label, i) => (
-          <span
-            key={label}
-            className="absolute grid h-6 w-6 -translate-x-1/2 place-items-center rounded-full border border-accent-line/70 bg-canvas font-mono text-[0.625rem] font-medium text-ink-muted"
-            style={{ left: `${(i + 1) * 112 - 56}px` }}
-          >
-            {label}
-          </span>
-        ))}
-      </div>
+      {/* Trame de coffrage, tres legere, par-dessus la photo */}
+      <div className="blueprint-grid absolute inset-0 opacity-[0.12] mix-blend-screen" />
 
-      {/* Ligne de cote en bas du bandeau */}
-      <div className="absolute inset-x-0 bottom-5 hidden items-center px-1 sm:flex">
-        <div className="relative h-px flex-1 bg-accent-line/60">
-          {[0, 1, 2, 3, 4].map((i) => (
-            <span
-              key={i}
-              className="absolute top-1/2 h-2 w-px -translate-y-1/2 bg-accent-line"
-              style={{ left: `${i * 112}px` }}
-            />
-          ))}
-        </div>
-      </div>
+      {/* Assombrissement du bas : lisibilite de l'avatar et raccord avec la carte */}
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface via-surface/60 to-transparent" />
 
-      {/* Degrade de fondu vers la carte de profil */}
-      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-surface to-transparent" />
+      {/* Filet cyan de separation, rappel du trait de cote */}
+      <div className="absolute inset-x-0 bottom-0 h-px bg-accent-line/40" />
     </div>
   );
 }
@@ -78,7 +71,7 @@ function AvatarPlaceholder() {
 export function ProfileBanner() {
   return (
     <section className="card overflow-hidden p-0">
-      <BlueprintBanner />
+      <HeroBanner />
 
       <div className="px-6 pb-6 sm:px-8 sm:pb-8">
         <div className="-mt-14 sm:-mt-16">
@@ -93,9 +86,8 @@ export function ProfileBanner() {
 
             <p className="mt-1.5 text-[1.0625rem] leading-snug text-ink">{profile.headline}</p>
 
-            <p className="mt-2 flex items-start gap-2 text-sm text-ink-muted">
-              <TodoBadge label="Tagline" />
-              <span className="min-w-0">{profile.tagline}</span>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted">
+              {profile.tagline}
             </p>
 
             <p className="mt-3 flex items-center gap-1.5 font-mono text-meta text-ink-faint">

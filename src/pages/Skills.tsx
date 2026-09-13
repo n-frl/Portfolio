@@ -42,7 +42,7 @@ function SkillCategory({ group }: { group: SkillGroup }) {
 
 export default function Skills() {
   useDocumentMeta(
-    'Skills — Nabil Elkorchi',
+    'Skills | Nabil Elkorchi',
     'Structural software, survey instrumentation, reality capture, project delivery, and engineering coursework.',
   );
 
@@ -51,7 +51,7 @@ export default function Skills() {
       <PageHeader
         eyebrow="Capabilities"
         title="Skills"
-        intro="Grouped by what they are used for, rather than rated on a scale. Expand a category to see the full list."
+        intro="Proficient in the following core competencies. Expand a category to see the full list."
       />
 
       <div className="space-y-5 sm:space-y-6">

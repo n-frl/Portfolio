@@ -12,9 +12,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"*.{json,md,js,ts}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
-    "typecheck": "tsc -b --noEmit",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages"
+    "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.20",

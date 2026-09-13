@@ -1,25 +1,21 @@
 import type { ProjectItem } from './types';
 
 /**
- * SOURCE : Resume (PDF) + confirmations de Nabil.
- * Une seule entree pour l'instant, encore a documenter.
+ * SOURCE : contenu fourni mot pour mot par Nabil.
+ * Les puces sont reprises telles quelles, sans reformulation ni ajout.
  */
 export const projects: ProjectItem[] = [
   {
-    // [A COMPLETER] Le CV mentionne "Drone building and programming" en centre
-    // d'interet + une licence FAA Part 107 et un poste de TA sur CEE 651.
-    // C'est le differenciateur le plus fort du profil : a documenter.
     id: 'drone-project',
-    title: '[PROJECT TITLE — drone build / programming]',
-    context: '[CONTEXT — personal project, club, or coursework]',
-    period: '[YYYY]',
-    description: '[One or two sentences: what you built, and what problem it solved.]',
+    title: 'Built and programmed my own FPV drone',
+    context: 'Personal project',
+    period: '2025',
+    description: '',
     contributions: [
-      '[What you designed or assembled.]',
-      '[What you programmed, and in what language.]',
-      '[Result: what it can do, or what you measured.]',
+      'Soldered motor wires, battery leads and a capacitor to the Electronic Speed Controller board',
+      'Interpreted and applied manufacturer wiring diagrams to connect the camera, GPS, controller receiver, VTX, and ESC to the Flight Controller',
+      'Utilized Betaflight to program the drone including a failsafe, On Screen Display, accelerometer, motor layout, receiver and other flight control settings',
     ],
-    tools: ['[TOOL]', '[TOOL]'],
-    isPlaceholder: true,
+    tools: ['Betaflight'],
   },
 ];

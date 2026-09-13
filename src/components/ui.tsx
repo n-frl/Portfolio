@@ -111,7 +111,7 @@ export const IconPin = ({ className }: IconProps) => (
 
 export function TodoBadge({ label = 'To complete' }: { label?: string }) {
   return (
-    <span className="badge-todo" title="Placeholder content — not real data yet.">
+    <span className="badge-todo" title="Placeholder content, not real data yet.">
       <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-accent-line" />
       {label}
     </span>

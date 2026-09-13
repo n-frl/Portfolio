@@ -26,7 +26,7 @@ export function Header() {
         <NavLink
           to="/"
           className="group flex items-center gap-3"
-          aria-label="Nabil Elkorchi — home"
+          aria-label="Nabil Elkorchi, home"
         >
           <span
             aria-hidden="true"

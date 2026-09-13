@@ -61,32 +61,9 @@ export const skillGroups: SkillGroup[] = [
     items: coursework,
     defaultOpen: false,
   },
-  {
-    // [A COMPLETER] Point important pour un poste de design engineer aux US.
-    // Ne rien cocher qui n'a pas ete reellement etudie ou applique.
-    id: 'codes-standards',
-    title: 'Codes & standards',
-    caption: 'Design codes you have actually worked with — leave empty until then.',
-    items: [
-      '[CODE — e.g. ASCE 7, AISC 360, ACI 318, IBC, Massachusetts State Building Code]',
-      '[CODE — add only what you have genuinely used]',
-    ],
-    defaultOpen: false,
-    isPlaceholder: true,
-  },
-  {
-    // [A COMPLETER] Le CV mentionne "Programming for Civil Engineering" et un
-    // interet pour la programmation de drones, sans preciser les langages.
-    id: 'programming',
-    title: 'Programming',
-    caption: 'Languages and libraries used for engineering computation.',
-    items: ['[LANGUAGE — e.g. Python, MATLAB]', '[LIBRARY OR TOOL]'],
-    defaultOpen: false,
-    isPlaceholder: true,
-  },
 ];
 
-/** SOURCE : Resume (PDF) — "Proficient in 3 languages". */
+/** SOURCE : Resume (PDF), "Proficient in 3 languages". */
 export const languages: LanguageSkill[] = [
   { language: 'English', level: 'Full professional proficiency' },
   { language: 'French', level: 'Full professional proficiency' },

@@ -45,12 +45,9 @@ export const profile: Profile = {
  * dans la page Skills.
  */
 export const quickFacts: { label: string; value: string; isPlaceholder?: boolean }[] = [
-  { label: 'Graduation', value: 'December 2026' },
+  { label: 'Graduation', value: 'Fall 2026' },
+  { label: "Master's", value: 'Expected Fall 2027' },
   { label: 'GPA', value: '3.3 / 4.0' },
   { label: 'Based in', value: 'Worcester, MA' },
-  {
-    label: 'Work authorization',
-    value: '[STATUS — e.g. US Citizen / Permanent Resident / F-1 CPT]',
-    isPlaceholder: true,
-  },
+  { label: 'Work authorization', value: 'US Citizen' },
 ];

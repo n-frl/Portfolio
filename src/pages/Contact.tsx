@@ -5,7 +5,7 @@ import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { cx } from '@/lib/cx';
 
 /**
- * Formulaire Formspree — aucun backend.
+ * Formulaire Formspree, aucun backend.
  *
  * L'ID vient de VITE_FORMSPREE_ID. Il est public par conception (il finit dans
  * le bundle JS) : ce n'est pas un secret, seulement un identifiant de boite de
@@ -44,7 +44,7 @@ function validate(values: FormValues): Partial<Record<keyof FormValues, string>>
 
 export default function Contact() {
   useDocumentMeta(
-    'Contact — Nabil Elkorchi',
+    'Contact | Nabil Elkorchi',
     'Send a message to Nabil Elkorchi about roles, internships, or project work.',
   );
 
@@ -119,7 +119,7 @@ export default function Contact() {
       <PageHeader
         eyebrow="Get in touch"
         title="Contact"
-        intro="Open to design engineering roles and internships in Massachusetts. Send a message and it lands directly in my inbox."
+        intro="Reach me directly by using the form below. Send a message and it lands directly in my inbox."
       />
 
       <div className="grid gap-5 sm:gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-start">
@@ -161,7 +161,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
               {/* Piege a robots : invisible pour l'utilisateur, rempli par les bots.
                   Formspree rejette automatiquement les envois ou _gotcha est rempli.
-                  Coute zero et n'ajoute aucune friction — supprimable si non voulu. */}
+                  Coute zero et n'ajoute aucune friction, supprimable si non voulu. */}
               <input
                 type="text"
                 name="_gotcha"
@@ -232,7 +232,7 @@ export default function Contact() {
                   aria-invalid={Boolean(errors.subject)}
                   aria-describedby={errors.subject ? 'subject-error' : undefined}
                   className={cx('field', errors.subject && 'field-invalid')}
-                  placeholder="Structural design internship — Summer 2027"
+                  placeholder="Structural engineering internship, Summer 2027"
                 />
                 {errors.subject && (
                   <p id="subject-error" className="mt-1.5 text-sm text-red-600 dark:text-red-400">
@@ -254,7 +254,7 @@ export default function Contact() {
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={errors.message ? 'message-error' : 'message-hint'}
                   className={cx('field resize-y', errors.message && 'field-invalid')}
-                  placeholder="A few lines about the role or the project."
+                  placeholder="Enter your introductory message here"
                 />
                 {errors.message ? (
                   <p id="message-error" className="mt-1.5 text-sm text-red-600 dark:text-red-400">
@@ -295,21 +295,14 @@ export default function Contact() {
                 aria-hidden="true"
                 className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-line"
               />
-              <span>Messages go straight to my inbox — there is no database behind this site.</span>
+              <span>Messages go straight to my inbox.</span>
             </li>
             <li className="flex gap-2.5">
               <span
                 aria-hidden="true"
                 className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-line"
               />
-              <span>Include the role, the location, and a timeline if you are hiring.</span>
-            </li>
-            <li className="flex gap-2.5">
-              <span
-                aria-hidden="true"
-                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-line"
-              />
-              <span>Based in Worcester, Massachusetts. Open to roles across the state.</span>
+              <span>Based in Worcester, Massachusetts. Open to roles anywhere.</span>
             </li>
           </ul>
         </Card>

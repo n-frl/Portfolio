@@ -65,7 +65,7 @@ function TimelineEntry({ item, isLast }: { item: ExperienceItem; isLast: boolean
 
 export default function Experience() {
   useDocumentMeta(
-    'Experience — Nabil Elkorchi',
+    'Experience | Nabil Elkorchi',
     'Internships, education, credentials, and engineering projects of Nabil Elkorchi.',
   );
 
@@ -74,7 +74,7 @@ export default function Experience() {
       <PageHeader
         eyebrow="Career"
         title="Experience"
-        intro="Field survey work, owner-side project delivery, and coursework — in reverse chronological order."
+        intro="Professional history in reverse chronological order demonstrating technical expertise through the following roles."
       />
 
       <div className="space-y-5 sm:space-y-6">
@@ -174,9 +174,11 @@ export default function Experience() {
                   {project.context} · {project.period}
                 </p>
 
-                <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
-                  {project.description}
-                </p>
+                {project.description && (
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-muted">
+                    {project.description}
+                  </p>
+                )}
 
                 <ul className="mt-3 space-y-2">
                   {project.contributions.map((line, i) => (

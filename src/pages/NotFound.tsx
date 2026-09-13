@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 
 export default function NotFound() {
-  useDocumentMeta('Page not found — Nabil Elkorchi', 'This page does not exist.');
+  useDocumentMeta('Page not found | Nabil Elkorchi', 'This page does not exist.');
 
   return (
     <div className="shell flex min-h-[60vh] flex-col items-center justify-center py-16 text-center">
